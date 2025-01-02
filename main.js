@@ -16,3 +16,20 @@ toggleButton.addEventListener('click',() => {
     toggleButton.style.backgroundColor = lightsOn ? 'yellow' : 'red';
     toggleButton.style.color = lightsOn ? 'blue' : 'white';
 })
+
+//Snowfall Effect
+const snowContainer =document.querySelector('.snow-container');
+
+function createSnowEffect() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.style.left = `${Math.random() * 100}vw`;
+    snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
+    snowflake.style.opacity = Math.random();
+
+    snowContainer.appendChild(snowflake);
+
+    setTimeout(() => snowflake.remove(), 5000)
+}
+
+setInterval(createSnowEffect, 200)
